@@ -112,3 +112,22 @@ create table order_dish (
 );
 ```
 
+# 4. 数据库操作
+
+## 4.1 对用户操作
+
+```java
+public static void add(User user);
+public static void deleteUser(int id);
+public static User seleteById(int id);
+```
+
+## 4.2 对菜品的操作
+
+```java
+public static void add(Dish dish);
+public static void delete(int id);
+public static List<Dish> seleteAll();
+public static Dish seleteById(int id);
+```
+

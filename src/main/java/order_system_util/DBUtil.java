@@ -1,4 +1,4 @@
-package dbutil;
+package order_system_util;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 

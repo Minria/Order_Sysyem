@@ -131,3 +131,46 @@ public static List<Dish> seleteAll();
 public static Dish seleteById(int id);
 ```
 
+# 5. 前后端API的约定
+
+用户注册
+
+```
+POST/register
+{
+	name:xxx
+	password:xxx
+}
+HTTP
+
+```
+
+用户登录
+
+```
+POST/login
+{
+	name:xxx
+	password:xxx
+}
+HTTP/1.1 200 OK
+{
+	ok:1,//1表示成功
+	reason:"",//失败的时候返回原因
+	name:"xxx",
+	isAdmin:0 //0表示普通用户，1表示管理员
+}
+```
+
+检查登录状态
+
+```
+GET/login
+
+{
+	
+}
+```
+
+用户注销
+

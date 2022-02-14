@@ -46,15 +46,17 @@ public class DishServlet extends HttpServlet {
                 response.reason="您不是管理员";
             }else{
                 response.ok=1;
-                response.reason="";
                 String body= GSON.readBody(req);
                 Request request=gson.fromJson(body,Request.class);
                 Dish dish=new Dish();
                 dish.setName(request.name);
                 dish.setPrice(request.price);
                 DishDao.add(dish);
-
+                response.reason="新增菜品成功";
+                System.out.println("新增菜品成功");
             }
         }
+        String ret = gson.toJson(response);
+        resp.getWriter().write(ret);
     }
 }

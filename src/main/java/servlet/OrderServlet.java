@@ -81,7 +81,7 @@ public class OrderServlet extends HttpServlet {
             }else{
                 String orderIdStr = req.getParameter("orderId");
                 if(orderIdStr==null){
-                    if(user.getIdAdmin()==0){
+                    if(user.getIsAdmin()==0){
                         orders = OrderDao.selectByUserId(user.getId());
                     }else{
                         orders=OrderDao.selectAll();
@@ -91,7 +91,7 @@ public class OrderServlet extends HttpServlet {
                 }else{
                     int orderId = Integer.parseInt(orderIdStr);
                     Order order = OrderDao.selectById(orderId);
-                    if (user.getIdAdmin() == 0 && order.getUserId() != user.getId()) {
+                    if (user.getIsAdmin() == 0 && order.getUserId() != user.getId()) {
                         response.ok=0;
                         response.reason="只能查看自己的订单";
                     }
@@ -118,7 +118,7 @@ public class OrderServlet extends HttpServlet {
                 response.ok=0;
                 response.reason="没有登录";
             }else{
-                if(user.getIdAdmin()==0) {
+                if(user.getIsAdmin()==0) {
                     response.ok = 0;
                     response.reason = "您不是管理员";
                 }else {

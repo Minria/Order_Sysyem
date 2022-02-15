@@ -41,7 +41,7 @@ public class RegisterServlet extends HttpServlet {
             User newUser=new User();
             newUser.setName(request.name);
             newUser.setPassword(request.password);
-            newUser.setIdAdmin(0);
+            newUser.setIsAdmin(0);
             UserDao.add(newUser);
             response.ok=1;
         }

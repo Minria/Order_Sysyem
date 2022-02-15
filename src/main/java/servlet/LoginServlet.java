@@ -18,8 +18,8 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     private static final Gson gson =new GsonBuilder().create();
     static class Request{
-        String name;
-        String password;
+        public String name;
+        public String password;
     }
     static class Response{
         public int ok;
@@ -33,6 +33,8 @@ public class LoginServlet extends HttpServlet {
         resp.setContentType("application/json;charset=utf-8");
         String body= GSON.readBody(req);
         Request request=gson.fromJson(body,Request.class);
+        System.out.println("账号->"+request.name);
+        System.out.println("密码->"+request.password);
         Response response=new Response();
         User user= UserDao.selectByName(request.name);
         if(user==null){
@@ -42,9 +44,9 @@ public class LoginServlet extends HttpServlet {
         }else{
             if(user.getPassword().equals(request.password)){
                 response.ok=1;
-                response.reason="登录成功";
+                response.reason="";
                 response.name= user.getName();
-                response.isAdmin= user.getIdAdmin();
+                response.isAdmin= user.getIsAdmin();
                 req.getSession().setAttribute("user",user);
             }else{
                 System.out.println("账号或者密码错误");
@@ -76,7 +78,7 @@ public class LoginServlet extends HttpServlet {
                 response.ok=1;
                 response.reason="";
                 response.name= user.getName();
-                response.isAdmin= user.getIdAdmin();
+                response.isAdmin= user.getIsAdmin();
             }
         }
         String ret = gson.toJson(response);

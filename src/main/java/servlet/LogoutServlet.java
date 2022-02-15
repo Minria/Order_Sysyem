@@ -32,7 +32,7 @@ public class LogoutServlet extends HttpServlet {
         }else{
             req.removeAttribute("user");
             response.ok=1;
-            response.reason="登出成功";
+            response.reason="";
         }
         String ret = gson.toJson(response);
         resp.getWriter().write(ret);

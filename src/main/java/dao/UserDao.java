@@ -24,7 +24,7 @@ public class UserDao {
                 user.setId(resultSet.getInt("userId"));
                 user.setName(resultSet.getString("name"));
                 user.setPassword(resultSet.getString("password"));
-                user.setIdAdmin(resultSet.getInt("isAdmin"));
+                user.setIsAdmin(resultSet.getInt("isAdmin"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -49,7 +49,7 @@ public class UserDao {
                 user.setId(resultSet.getInt("userId"));
                 user.setName(resultSet.getString("name"));
                 user.setPassword(resultSet.getString("password"));
-                user.setIdAdmin(resultSet.getInt("isAdmin"));
+                user.setIsAdmin(resultSet.getInt("isAdmin"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -87,7 +87,7 @@ public class UserDao {
             statement= connection.prepareStatement(sql);
             statement.setString(1, user.getName());
             statement.setString(2, user.getPassword());
-            statement.setInt(3,user.getIdAdmin());
+            statement.setInt(3,user.getIsAdmin());
             int ret = statement.executeUpdate();
             if(ret!=0){
                 System.out.println("添加新用户成功");

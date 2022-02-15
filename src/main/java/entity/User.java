@@ -4,7 +4,8 @@ public class User {
     private int id;
     private String name;
     private String password;
-    private int idAdmin;
+
+    private int isAdmin;
 
     public int getId() {
         return id;
@@ -30,12 +31,12 @@ public class User {
         this.password = password;
     }
 
-    public int getIdAdmin() {
-        return idAdmin;
+    public int getIsAdmin() {
+        return isAdmin;
     }
 
-    public void setIdAdmin(int idAdmin) {
-        this.idAdmin = idAdmin;
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
     }
 
     @Override
@@ -44,7 +45,7 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
-                ", idAdmin=" + idAdmin +
+                ", isAdmin=" + isAdmin +
                 '}';
     }
 }

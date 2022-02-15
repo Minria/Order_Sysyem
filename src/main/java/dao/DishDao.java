@@ -23,7 +23,7 @@ public class DishDao {
             resultSet=statement.executeQuery();
             if(resultSet.next()){
                 Dish dish=new Dish();
-                dish.setId(resultSet.getInt("dishID"));
+                dish.setId(resultSet.getInt("dishId"));
                 dish.setName(resultSet.getString("name"));
                 dish.setPrice(resultSet.getInt("price"));
                 return dish;

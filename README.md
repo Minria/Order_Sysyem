@@ -133,16 +133,21 @@ public static Dish seleteById(int id);
 
 # 5. 前后端API的约定
 
+## 5.1 用户操作
+
 用户注册
 
 ```
 POST/register
 {
-	name:xxx
+	name:xxx,
 	password:xxx
 }
-HTTP
-
+HTTP/1.1 200 OK
+{
+	ok:1,
+	reason:xxx
+}
 ```
 
 用户登录
@@ -150,14 +155,14 @@ HTTP
 ```
 POST/login
 {
-	name:xxx
+	name:xxx,
 	password:xxx
 }
 HTTP/1.1 200 OK
 {
 	ok:1,//1表示成功
-	reason:"",//失败的时候返回原因
-	name:"xxx",
+	reason:xxx,//失败的时候返回原因
+	name:xxx,
 	isAdmin:0 //0表示普通用户，1表示管理员
 }
 ```
@@ -166,11 +171,136 @@ HTTP/1.1 200 OK
 
 ```
 GET/login
-
 {
-	
+}
+{
+	ok:1,
+	reason:xxx,
+	name:xxx,
+	isAdmin:0
 }
 ```
 
 用户注销
+
+```
+GET/logout
+{
+}
+{
+	ok:1,
+	reason:xxx
+}
+```
+
+## 5.2 对菜品的管理
+
+ 新增菜品
+
+需要验证管理员身份
+
+```
+POST/dish
+{
+	name:xxx,
+	price:xxx,
+}
+{
+	ok:1,
+	reason:xxx
+}
+```
+
+删除菜品
+
+需要验证管理员身份
+
+```
+DELETE/dish?dishId=xxx
+{
+}
+{
+	ok:1,
+	reason:xxx
+}
+```
+
+查看所有菜品
+
+```
+GET/dish
+{
+}
+{
+	{
+		dishId:xxx,
+		name:xxx,
+		price:xxx
+	},{
+		dishId:xxx,
+		name:xxx,
+		price:xxx	
+	}
+}
+```
+
+## 5.3 订单管理
+
+新增订单
+
+```
+POST/order
+{
+	[1,2,3,4]
+}
+{
+	ok:1,
+	reason:xxx
+}
+```
+
+查看订单
+
+根据身份来判断操作
+
+```
+GET/order
+{
+}
+{
+	{
+		orderId:xxx,
+		userId:xxx,
+		time:xxx,
+		isDone:xxx,
+	}
+}
+```
+
+查看指定订单详情
+
+```
+GET/order?orderId=xxx
+{
+}
+{
+	orderId:xxx,
+	userId:xxx,
+	time:xxx,
+	isDone:xxx,
+	dishes:xxx
+}
+```
+
+修改订单状态
+
+```	
+PUT/order?orderId=xxx&isDone=1
+{
+}
+{
+	ok:1,
+	reason:xxx
+}
+```
 

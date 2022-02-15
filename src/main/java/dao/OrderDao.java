@@ -20,6 +20,7 @@ public class OrderDao {
     private static void addOrderUser(Order order){
         Connection connection=DBUtil.getConnection();
         PreparedStatement statement =null;
+        ResultSet resultSet = null;
         String sql = "insert into order_user values (null,?,now(),0)";
         try {
             assert connection != null;
@@ -28,13 +29,15 @@ public class OrderDao {
             int ret = statement.executeUpdate();
             if(ret!=0){
                 System.out.println("新增成功");
+                resultSet=statement.getGeneratedKeys();
+                order.setOrderId(resultSet.getInt(1));
                 return;
             }
             System.out.println("新增失败");
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            DBUtil.close(connection,statement,null);
+            DBUtil.close(connection,statement,resultSet);
         }
     }
     private static void addOrderDish(Order order){

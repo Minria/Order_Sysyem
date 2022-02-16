@@ -304,3 +304,7 @@ PUT/order?orderId=xxx&isDone=1
 }
 ```
 
+# 6. API设计分析
+
+## 6.1 用户操作
+

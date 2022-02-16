@@ -1,17 +1,18 @@
 import dao.DishDao;
 import entity.Dish;
+import order_system_util.OrderSystemException;
 
 import java.util.List;
 
 public class TestDishDao {
-    public static void main4(String[] args) {
+    public static void main4(String[] args) throws OrderSystemException {
         DishDao.delete(1);
     }
-    public static void main3(String[] args) {
+    public static void main3(String[] args) throws OrderSystemException {
         Dish d=DishDao.selectById(2);
         System.out.println(d);
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws OrderSystemException {
         List<Dish> list=DishDao.selectAll();
         for(Dish d:list){
             System.out.println(d);

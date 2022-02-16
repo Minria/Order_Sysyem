@@ -1,16 +1,16 @@
 package entity;
 
 public class Dish {
-    private int id;
+    private int dishId;
     private String name;
     private int price;
 
-    public int getId() {
-        return id;
+    public int getDishId() {
+        return dishId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setDishId(int dishId) {
+        this.dishId = dishId;
     }
 
     public String getName() {
@@ -32,7 +32,7 @@ public class Dish {
     @Override
     public String toString() {
         return "Dish{" +
-                "id=" + id +
+                "dishId=" + dishId +
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 '}';

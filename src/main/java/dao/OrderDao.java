@@ -1,46 +1,46 @@
 package dao;
 
-import order_system_util.DBUtil;
 import entity.Dish;
 import entity.Order;
+import order_system_util.DBUtil;
+import order_system_util.OrderSystemException;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 public class OrderDao {
 
-    public static void add(Order order){
+    public static void add(Order order) throws OrderSystemException {
         addOrderUser(order);
         addOrderDish(order);
     }
 
-    private static void addOrderUser(Order order){
-        Connection connection=DBUtil.getConnection();
+    private static void addOrderUser(Order order) throws OrderSystemException {
+        Connection connection= DBUtil.getConnection();
         PreparedStatement statement =null;
         ResultSet resultSet = null;
         String sql = "insert into order_user values (null,?,now(),0)";
         try {
             assert connection != null;
-            statement= connection.prepareStatement(sql);
+            statement= connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1,order.getUserId());
             int ret = statement.executeUpdate();
-            if(ret!=0){
-                System.out.println("新增成功");
-                resultSet=statement.getGeneratedKeys();
-                order.setOrderId(resultSet.getInt(1));
-                return;
+            if(ret==0){
+                throw new OrderSystemException("新增订单失败");
             }
-            System.out.println("新增失败");
+            resultSet=statement.getGeneratedKeys();
+            if(resultSet.next()){
+                order.setOrderId(resultSet.getInt(1));
+            }
+            System.out.println("插入订单第一步成功");
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new OrderSystemException(e.getMessage());
         } finally {
             DBUtil.close(connection,statement,resultSet);
         }
     }
-    private static void addOrderDish(Order order){
+    private static void addOrderDish(Order order) throws OrderSystemException {
         Connection connection = DBUtil.getConnection();
         String sql = "insert into order_dish values(?, ?)";
         PreparedStatement statement = null;
@@ -51,7 +51,7 @@ public class OrderDao {
             List<Dish> dishes = order.getDishes();
             for (Dish dish : dishes)  {
                 statement.setInt(1, order.getOrderId());
-                statement.setInt(2, dish.getId());
+                statement.setInt(2, dish.getDishId());
                 statement.addBatch();
             }
             statement.executeBatch();
@@ -64,7 +64,7 @@ public class OrderDao {
         }
     }
 
-    private static void deleteOrderUser(int orderId) {
+    public static void deleteOrderUser(int orderId) throws OrderSystemException {
         Connection connection=DBUtil.getConnection();
         PreparedStatement statement = null;
         String sql = "delete from order_user where orderId = ?";
@@ -73,13 +73,13 @@ public class OrderDao {
             statement=connection.prepareStatement(sql);
             statement.setInt(1,orderId);
             int ret = statement.executeUpdate();
-            if(ret!=0){
-                System.out.println("删除成功");
-                return;
+            if(ret==0){
+                throw new OrderSystemException("回滚失败");
             }
-            System.out.println("删除失败");
+            System.out.println("回滚成功");
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new OrderSystemException(e.getMessage());
         } finally {
             DBUtil.close(connection,statement,null);
         }
@@ -136,8 +136,7 @@ public class OrderDao {
         return orders;
     }
 
-    public static Order selectById(int orderId)  {
-
+    public static Order selectById(int orderId) throws OrderSystemException {
         Order order = buildOrder(orderId);
         List<Integer> dishIds = selectDishIds(orderId);
         getDishDetail(order, dishIds);
@@ -193,7 +192,7 @@ public class OrderDao {
         return dishIds;
     }
 
-    private static void getDishDetail(Order order, List<Integer> dishIds)  {
+    private static void getDishDetail(Order order, List<Integer> dishIds) throws OrderSystemException {
         List<Dish> dishes = new ArrayList<>();
         for (Integer dishId : dishIds) {
             Dish dish = DishDao.selectById(dishId);
@@ -202,7 +201,7 @@ public class OrderDao {
         order.setDishes(dishes);
     }
 
-    public static void changeState(int orderId, int isDone)  {
+    public static void changeState(int orderId, int isDone) throws OrderSystemException {
         Connection connection = DBUtil.getConnection();
         String sql = "update order_user set isDone = ? where orderId = ?";
         PreparedStatement statement = null;
@@ -213,13 +212,12 @@ public class OrderDao {
             statement.setInt(2, orderId);
             int ret = statement.executeUpdate();
             if (ret != 1) {
-                System.out.println("修改订单状态失败");
-                return;
+                throw new OrderSystemException("修改订单状态失败");
             }
             System.out.println("修改订单状态成功");
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("修改订单状态失败");
+            throw new OrderSystemException(e.getMessage());
         } finally {
             DBUtil.close(connection, statement, null);
         }

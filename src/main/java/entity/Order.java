@@ -6,8 +6,8 @@ import java.util.List;
 public class Order {
     private int orderId;
     private int userId;
-    private List<Dish> dishes;
     private Timestamp time;
+    private List<Dish> dishes;
     private int isDone;
 
     public int getOrderId() {
@@ -26,14 +26,6 @@ public class Order {
         this.userId = userId;
     }
 
-    public List<Dish> getDishes() {
-        return dishes;
-    }
-
-    public void setDishes(List<Dish> dishes) {
-        this.dishes = dishes;
-    }
-
     public Timestamp getTime() {
         return time;
     }
@@ -48,6 +40,14 @@ public class Order {
 
     public void setIsDone(int isDone) {
         this.isDone = isDone;
+    }
+
+    public List<Dish> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
     }
 
 

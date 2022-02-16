@@ -21,7 +21,7 @@ public class UserDao {
             resultSet=statement.executeQuery();
             if(resultSet.next()){
                 user=new User();
-                user.setId(resultSet.getInt("userId"));
+                user.setUserId(resultSet.getInt("userId"));
                 user.setName(resultSet.getString("name"));
                 user.setPassword(resultSet.getString("password"));
                 user.setIsAdmin(resultSet.getInt("isAdmin"));
@@ -46,7 +46,7 @@ public class UserDao {
             resultSet=statement.executeQuery();
             if(resultSet.next()){
                 user=new User();
-                user.setId(resultSet.getInt("userId"));
+                user.setUserId(resultSet.getInt("userId"));
                 user.setName(resultSet.getString("name"));
                 user.setPassword(resultSet.getString("password"));
                 user.setIsAdmin(resultSet.getInt("isAdmin"));

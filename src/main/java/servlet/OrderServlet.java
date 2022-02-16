@@ -7,8 +7,9 @@ import entity.Dish;
 import entity.Order;
 import entity.User;
 import order_system_util.GSON;
+import order_system_util.OrderSystemException;
 
-import javax.servlet.ServletException;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,116 +28,119 @@ public class OrderServlet extends HttpServlet {
         public String reason;
     }
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
         req.setCharacterEncoding("utf-8");
         resp.setContentType("application/json;charset=utf-8");
         Response response = new Response();
-        HttpSession session = req.getSession(false);
-        if (session == null) {
-            response.ok = 0;
-            response.reason = "没有登录";
-        } else {
-            User user = (User) req.getSession().getAttribute("user");
-            if (user == null) {
-                response.ok = 0;
-                response.reason = "没有登录";
-            } else {
-                String body = GSON.readBody(req);
-                Integer[] dishId = gson.fromJson(body, Integer[].class);
-                Order order = new Order();
-                order.setUserId(user.getId());
-                List<Dish> dishes = new ArrayList<>();
-                for (Integer id : dishId) {
-                    Dish dish = new Dish();
-                    dish.setId(id);
-                    dishes.add(dish);
-                }
-                order.setDishes(dishes);
-                OrderDao.add(order);
-                response.ok = 1;
-                response.reason = "";
+        try{
+            HttpSession session = req.getSession(false);
+            if (session == null) {
+                throw new OrderSystemException("没有登录");
             }
+            User user = (User) req.getSession().getAttribute("user");
+            if(user==null){
+                throw new OrderSystemException("没有登录");
+            }
+            String body = GSON.readBody(req);
+            Integer[] dishId = gson.fromJson(body, Integer[].class);
+            Order order = new Order();
+            order.setUserId(user.getUserId());
+            List<Dish> dishes = new ArrayList<>();
+            for (Integer id : dishId) {
+                Dish dish = new Dish();
+                dish.setDishId(id);
+                dishes.add(dish);
+            }
+            order.setDishes(dishes);
+            OrderDao.add(order);
+            response.ok = 1;
+            response.reason = "";
+        }catch (Exception e){
+            e.printStackTrace();
+            response.ok=0;
+            response.reason=e.getMessage();
+        }finally {
+            String ret = gson.toJson(response);
+            resp.getWriter().write(ret);
         }
-        String ret = gson.toJson(response);
-        resp.getWriter().write(ret);
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         req.setCharacterEncoding("utf-8");
         resp.setContentType("application/json;charset=utf-8");
         Response response=new Response();
         List<Order> orders=null;
-        HttpSession session= req.getSession(false);
-        if(session==null){
-            response.ok=0;
-            response.reason="没有登录";
-            System.out.println("没有登录");
-        }else{
+        try{
+            HttpSession session= req.getSession(false);
+            if(session==null){
+                throw new OrderSystemException("没有登录");
+            }
             User user= (User) req.getSession().getAttribute("user");
             if(user==null){
-                System.out.println("没有登录");
-                response.ok=0;
-                response.reason="没有登录";
-            }else{
-                String orderIdStr = req.getParameter("orderId");
-                if(orderIdStr==null){
-                    if(user.getIsAdmin()==0){
-                        orders = OrderDao.selectByUserId(user.getId());
-                    }else{
-                        orders=OrderDao.selectAll();
-                    }
-                    String ret = gson.toJson(orders);
-                    resp.getWriter().write(ret);
-                }else{
-                    int orderId = Integer.parseInt(orderIdStr);
-                    Order order = OrderDao.selectById(orderId);
-                    if (user.getIsAdmin() == 0 && order.getUserId() != user.getId()) {
-                        response.ok=0;
-                        response.reason="只能查看自己的订单";
-                    }
-                    String ret = gson.toJson(response);
-                    resp.getWriter().write(ret);
-                }
+                throw new OrderSystemException("没有登录");
             }
+            String orderIdStr = req.getParameter("orderId");
+            if(orderIdStr==null){
+                if(user.getIsAdmin()==0){
+                    orders = OrderDao.selectByUserId(user.getUserId());
+                }else{
+                    orders=OrderDao.selectAll();
+                }
+                String ret = gson.toJson(orders);
+                resp.getWriter().write(ret);
+            }else{
+                int orderId = Integer.parseInt(orderIdStr);
+                System.out.println("订单id->"+orderId);
+                Order order = OrderDao.selectById(orderId);
+                if (user.getIsAdmin() == 0 && order.getUserId() != user.getUserId()) {
+                    throw new OrderSystemException("只能查看自己的订单");
+                }
+                String ret = gson.toJson(order);
+                resp.getWriter().write(ret);
+            }
+        }catch (Exception e){
+            String jsonString = gson.toJson(orders);
+            resp.getWriter().write(jsonString);
         }
     }
 
 
     @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         req.setCharacterEncoding("utf-8");
         resp.setContentType("application/json;charset=utf-8");
         Response response=new Response();
-        HttpSession session = req.getSession(false);
-        if(session==null){
-            response.ok=0;
-            response.reason="没有登录";
-        }else{
-            User user = (User) session.getAttribute("user");
-            if (user == null) {
-                response.ok=0;
-                response.reason="没有登录";
-            }else{
-                if(user.getIsAdmin()==0) {
-                    response.ok = 0;
-                    response.reason = "您不是管理员";
-                }else {
-                    String orderIdStr = req.getParameter("orderId");
-                    String isDoneStr = req.getParameter("isDone");
-                    if (orderIdStr == null || isDoneStr == null) {
-                        response.ok=0;
-                        response.reason="参数有误";
-                    }else{
-                        int orderId = Integer.parseInt(orderIdStr);
-                        int isDone = Integer.parseInt(isDoneStr);
-                        OrderDao.changeState(orderId, isDone);
-                        response.ok = 1;
-                    }
-                }
+        try{
+            HttpSession session = req.getSession(false);
+            if(session==null){
+                throw new OrderSystemException("没有登录");
             }
+            User user = (User) session.getAttribute("user");
+            if (user == null){
+                throw new OrderSystemException("没有登录");
+            }
+            if(user.getIsAdmin()==0){
+                throw new OrderSystemException("您不是管理员");
+            }
+            String orderIdStr = req.getParameter("orderId");
+            String isDoneStr = req.getParameter("isDone");
+            if (orderIdStr == null || isDoneStr == null) {
+                throw new OrderSystemException("参数有误");
+            }else{
+                int orderId = Integer.parseInt(orderIdStr);
+                int isDone = Integer.parseInt(isDoneStr);
+                OrderDao.changeState(orderId, isDone);
+                response.ok = 1;
+                response.reason="";
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            response.ok=0;
+            response.reason=e.getMessage();
+        }finally {
+            String ret = gson.toJson(response);
+            resp.getWriter().write(ret);
         }
-        String ret = gson.toJson(response);
-        resp.getWriter().write(ret);
     }
 }

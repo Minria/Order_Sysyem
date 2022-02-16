@@ -6,9 +6,10 @@ import dao.DishDao;
 import entity.Dish;
 import entity.User;
 import order_system_util.GSON;
+import order_system_util.OrderSystemException;
 
 
-import javax.servlet.ServletException;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,95 +40,97 @@ public class DishServlet extends HttpServlet {
         req.setCharacterEncoding("utf-8");
         resp.setContentType("application/json;charset=utf-8");
         Response response=new Response();
-        HttpSession session= req.getSession(false);
-        if(session==null){
-            response.ok=0;
-            response.reason="请登录";
-        }else{
+        try{
+            HttpSession session= req.getSession(false);
+            if(session==null){
+                throw new OrderSystemException("请登录");
+            }
             User user= (User) req.getSession().getAttribute("user");
             if(user==null){
-                response.ok=0;
-                response.reason="请登录";
-            }else{
-                if(user.getIsAdmin()==0){
-                    response.ok=0;
-                    response.reason="您不是管理员";
-                }else{
-                    response.ok=1;
-                    String body= GSON.readBody(req);
-                    Request request=gson.fromJson(body,Request.class);
-                    Dish dish=new Dish();
-                    dish.setName(request.name);
-                    dish.setPrice(request.price);
-                    DishDao.add(dish);
-                    response.reason="";
-                    System.out.println("新增菜品成功");
-                }
+                throw new OrderSystemException("请登录");
             }
+            if(user.getIsAdmin()==0){
+                throw new OrderSystemException("您不是管理员");
+            }
+            String body= GSON.readBody(req);
+            Request request=gson.fromJson(body,Request.class);
+            Dish dish=new Dish();
+            dish.setName(request.name);
+            dish.setPrice(request.price);
+            DishDao.add(dish);
+            response.ok=1;
+            response.reason="";
+            System.out.println("新增菜品成功");
+        }catch (Exception e){
+            e.printStackTrace();
+            response.ok=0;
+            response.reason=e.getMessage();
+        } finally {
+            String ret = gson.toJson(response);
+            resp.getWriter().write(ret);
         }
-        String ret = gson.toJson(response);
-        resp.getWriter().write(ret);
     }
 
     @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
         req.setCharacterEncoding("utf-8");
         resp.setContentType("application/json;charset=utf-8");
         Response response=new Response();
-        HttpSession session= req.getSession(false);
-        if(session==null){
-            response.ok=0;
-            response.reason="没有登录";
-        }else{
+        try{
+            HttpSession session= req.getSession(false);
+            if(session==null){
+                throw new OrderSystemException("没有登录");
+            }
             User user= (User) req.getSession().getAttribute("user");
             if(user==null){
-                response.ok=0;
-                response.reason="没有登录";
-                System.out.println("没有登录");
-            }else{
-                if(user.getIsAdmin()==0){
-                    response.ok=0;
-                    response.reason="不是管理员";
-                    System.out.println("不是管理员");
-                }else{
-                    String dishStrId=req.getParameter("dishId");
-                    System.out.println("字符串格式->"+dishStrId);
-                    if(dishStrId==null){
-                        response.ok=0;
-                        response.reason="参数不正确";
-                    }else{
-                        int id=Integer.parseInt(dishStrId);
-                        System.out.println("数字格式->"+dishStrId);
-                        DishDao.delete(id);
-                        response.ok=1;
-                        response.reason="";
-                    }
-                }
+                throw new OrderSystemException("没有登录");
             }
+            if(user.getIsAdmin()==0){
+                throw new OrderSystemException("您不是管理员");
+            }
+            String dishStrId=req.getParameter("dishId");
+            System.out.println("字符串格式->"+dishStrId);
+            if(dishStrId==null){
+                throw new OrderSystemException("参数不正确");
+            }
+            int id=Integer.parseInt(dishStrId);
+            System.out.println("数字格式->"+dishStrId);
+            DishDao.delete(id);
+            response.ok=1;
+            response.reason="";
+        }catch (Exception e){
+            System.out.println("DishServlet_doDelete:");
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+            response.ok=0;
+            response.reason=e.getMessage();
+        } finally {
+            String jsonString = gson.toJson(response);
+            resp.getWriter().write(jsonString);
         }
-        String jsonString = gson.toJson(response);
-        resp.getWriter().write(jsonString);
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
         req.setCharacterEncoding("utf-8");
         resp.setContentType("application/json;charset=utf-8");
         List<Dish> dishes=new ArrayList<>();
-        HttpSession session= req.getSession(false);
-        if(session==null) {
-            String jsonString = gson.toJson(dishes);
-            resp.getWriter().write(jsonString);
-        }else{
-            User user= (User) req.getSession().getAttribute("user");
-            if(user==null) {
-                String jsonString = gson.toJson(dishes);
-                resp.getWriter().write(jsonString);
-            }else{
-                dishes=DishDao.selectAll();
-                String jsonString = gson.toJson(dishes);
-                resp.getWriter().write(jsonString);
+        try{
+            HttpSession session= req.getSession(false);
+            if(session==null){
+                throw new OrderSystemException("没有登录");
             }
+            User user= (User) req.getSession().getAttribute("user");
+            if(user==null){
+                throw new OrderSystemException("没有登录");
+            }
+            dishes=DishDao.selectAll();
+            String ret = gson.toJson(dishes);
+            resp.getWriter().write(ret);
+        }catch (Exception e){
+            e.printStackTrace();
+            String ret = gson.toJson(dishes);
+            resp.getWriter().write(ret);
         }
     }
 }

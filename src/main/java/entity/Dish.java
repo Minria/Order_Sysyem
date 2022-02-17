@@ -4,6 +4,7 @@ public class Dish {
     private int dishId;
     private String name;
     private int price;
+    private int state;
 
     public int getDishId() {
         return dishId;
@@ -29,12 +30,21 @@ public class Dish {
         this.price = price;
     }
 
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
     @Override
     public String toString() {
         return "Dish{" +
                 "dishId=" + dishId +
                 ", name='" + name + '\'' +
                 ", price=" + price +
+                ", state=" + state +
                 '}';
     }
 }

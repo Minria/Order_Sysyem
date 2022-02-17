@@ -8,8 +8,6 @@ import entity.User;
 import order_system_util.GSON;
 import order_system_util.OrderSystemException;
 
-
-
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -54,6 +52,20 @@ public class DishServlet extends HttpServlet {
             }
             String body= GSON.readBody(req);
             Request request=gson.fromJson(body,Request.class);
+            Dish findDish=DishDao.selectByName(request.name);
+            if(findDish!=null){
+                if(findDish.getState()==0){
+                    throw new OrderSystemException("菜品已经存在；或删除后添加");
+                }else{
+                    if(findDish.getPrice()== request.price){
+                        DishDao.update(findDish.getDishId(),0);
+                        response.ok=1;
+                        response.reason="";
+                        System.out.println("新增菜品成功");
+                        return;
+                    }
+                }
+            }
             Dish dish=new Dish();
             dish.setName(request.name);
             dish.setPrice(request.price);
@@ -95,7 +107,7 @@ public class DishServlet extends HttpServlet {
             }
             int id=Integer.parseInt(dishStrId);
             System.out.println("数字格式->"+dishStrId);
-            DishDao.delete(id);
+            DishDao.update(id,1);
             response.ok=1;
             response.reason="";
         }catch (Exception e){

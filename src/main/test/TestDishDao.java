@@ -6,7 +6,7 @@ import java.util.List;
 
 public class TestDishDao {
     public static void main4(String[] args) throws OrderSystemException {
-        DishDao.delete(1);
+        DishDao.update(1,0);
     }
     public static void main3(String[] args) throws OrderSystemException {
         Dish d=DishDao.selectById(2);

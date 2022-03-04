@@ -1,0 +1,7 @@
+package order_system_util;
+
+public class OrderSystemException extends Exception{
+    public OrderSystemException(String message) {
+        super(message);
+    }
+}

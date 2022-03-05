@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.order_system.dao.OrderMapper">
+    <resultMap id="BaseResultMap" type="com.example.order_system.model.Order">
+        <result column="orderId" property="orderId"/>
+        <result column="userId" property="userId"/>
+        <result column="isDone" property="isDone"/>
+        <result column="time" property="time"/>
+        <collection property="dishes"
+                    columnPrefix="d_"
+                    resultMap="com.example.order_system.dao.DishMapper.BaseResultMap">
+        </collection>
+    </resultMap>
+    <insert id="addOrderUser" useGeneratedKeys="true" keyProperty="orderId" keyColumn="orderId">
+        insert into order_user (userId,time,isDone) values (#{userId},now(),0)
+    </insert>
+    <insert id="addOrderDish">
+        insert into order_dish values
+            <foreach collection="dishes" item="item" separator=",">
+                (#{orderId},#{item.dishId})
+            </foreach>
+    </insert>
+    <update id="changeState">
+        update order_user set isDone = #{isDone} where orderId = #{orderId}
+    </update>
+    <delete id="deleteOrderUser">
+        delete form order_user where orderId=#{orderId}
+    </delete>
+    <select id="selectAll" resultType="com.example.order_system.model.Order">
+        select * from order_user
+    </select>
+    <select id="selectByUserId" resultType="com.example.order_system.model.Order">
+        select * from order_user where userId =#{id}
+    </select>
+    <select id="buildOrder" resultType="com.example.order_system.model.Order">
+        select * from order_user where orderId=#{orderId}
+    </select>
+    <select id="selectDishIds" resultType="java.lang.Integer">
+        select dishId from order_dish where orderId = #{orderId}
+    </select>
+
+
+</mapper>

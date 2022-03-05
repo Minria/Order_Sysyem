@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.order_system.dao.DishMapper">
+    <resultMap id="BaseResultMap" type="com.example.order_system.model.Dish">
+        <result column="dishId" property="dishId"/>
+        <result column="state" property="state"/>
+        <result column="name" property="name"/>
+        <result column="price" property="price"/>
+    </resultMap>
+
+    <insert id="add" useGeneratedKeys="true" keyColumn="dishId" keyProperty="dishId">
+        insert into dishes(name,price,state) values (#{name},#{price},#{state})
+    </insert>
+    <update id="update">
+        update  dishes set state=#{state} where dishId=#{id}
+    </update>
+    <select id="selectAll" resultType="com.example.order_system.model.Dish">
+        select * from dishes where state=0
+    </select>
+    <select id="selectById" resultType="com.example.order_system.model.Dish">
+        select * from dishes where dishId=#{id}
+    </select>
+    <select id="selectByName" resultType="com.example.order_system.model.Dish">
+        select * from dishes where name=#{name}
+    </select>
+    <select id="findDish" resultType="com.example.order_system.model.Dish">
+        select d.dishId,d.name,d.price,d.state from order_dish o left join dishes d
+            on  o.dishId=d.dishId where o.orderId=#{orderId}
+    </select>
+
+</mapper>

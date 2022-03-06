@@ -1,6 +1,10 @@
-版本迭代：
+版本迭代
 
-V1 上线
+V3：更改技术栈为Spring+Mybatis
+
+V2：修复了因为主键绑定而无法删除菜品的问题
+
+V1： 上线
 
 支持用户的注册、登录、点餐
 
@@ -22,17 +26,13 @@ V1 上线
 
 ## 1.3 技术栈
 
-MySQL以及JavaJDBC编程
-
-JavaServlet编程
-
-Http网络相关知识
+SpringBoot+SpringMVC+Mybatis
 
 # 2. 需求分析
 
 ## 2.1 用户管理
 
-注册、登录、登出
+注册、登录、注销
 
 需要区分顾客与商家，因为他们的操作不相同
 
@@ -118,34 +118,42 @@ create table order_dish (
 ## 4.1 对用户操作
 
 ```java
-public static void add(User user);
-public static void deleteUser(int id);
-public static User seleteById(int id);
+@Mapper
+public interface UserMapper {
+    int add(User user);
+    int delete(int id);
+    User selectById(int id);
+    User selectByName(String name);
+}
 ```
 
 ## 4.2 对菜品的操作
 
 ```java
-public static void add(Dish dish);
-public static void delete(int id);
-public static List<Dish> seleteAll();
-public static Dish seleteById(int id);
+@Mapper
+public interface DishMapper {
+    int add(Dish dish);
+    int update(int id,int state);
+    List<Dish> selectAll();
+    Dish selectById(int id);
+    Dish selectByName(String name);
+    List<Dish> findDish(int orderId);
+}
 ```
 
 ## 4.3 对订单的操作
 
 ```java
-public static void add(Order order);
-private static void addOrderUser(Order order);
-private static void addOrderDish(Order order);
-public static void deleteOrderUser(int orderId);
-public static List<Order> selectAll();
-public static List<Order> selectByUserId(int userId);
-public static Order selectById(int orderId);
-private static Order buildOrder(int orderId);
-private static List<Integer> selectDishIds(int orderId);
-private static void getDishDetail(Order order, List<Integer> dishIds);
-public static void changeState(int orderId, int isDone);
+@Mapper
+public interface OrderMapper {
+    int addOrderUser(Order order);
+    int addOrderDish(Order order);
+    int deleteOrderUser(int orderId);
+    List<Order> selectAll();
+    List<Order> selectByUserId(int id);
+    int changeState(int orderId, int isDone);
+    Order buildOrder(int orderId);
+}
 ```
 
 1、新增订单
@@ -160,13 +168,7 @@ public static void changeState(int orderId, int isDone);
 
 2、查看订单详情
 
-第一步构建订单
-
-`buildOrder`函数通过订单id构造一个订单，这时候我们的订单中就只有菜品没有表示（操作order_user表）
-
-`selecDishIds`来通过订单id来得到菜品线性表(操作order_dish表)
-
-`getDishDetail`来将菜品线性表添加到order中
+第一步构建订单，使用`buildOrder`函数得到一个订单，这时我们的点单的基本信息已经完成，就只有里面的菜品没有添加，在调用`findDish`函数得到一个线性表，将其插入订单中即可完成一个订单
 
 # 5. 前后端API的约定
 
@@ -180,22 +182,28 @@ public static void changeState(int orderId, int isDone);
 
 **用户注册**
 
-```
+```sql
+//请求
 POST/register
 {
 	name:xxx,
 	password:xxx
 }
+//响应
 HTTP/1.1 200 OK
 {
 	ok:1,
 	reason:xxx
 }
+//后端接口
+public Object register(@RequestBody User user)
 ```
 
 构造注册用户名以及密码，通过字符串发送后端
 
-后端处理由于用户名的唯一性，所以需要与已有用户名进行对比。
+后端处理：由于用户名的唯一性，所以需要与已有用户名进行对比。
+
+同时需要对账号密码进行判空处理
 
 如果已经存在则注册成功，反之，则注册失败。
 
@@ -214,6 +222,7 @@ HTTP/1.1 200 OK
 	name:xxx,
 	isAdmin:0 //0表示普通用户，1表示管理员
 }
+public Object login(@RequestBody User user)
 ```
 
 构造登录用户名以及密码
@@ -234,6 +243,7 @@ GET/login
 	name:xxx,
 	isAdmin:0
 }
+public Object isLogin(HttpServlet req)
 ```
 
 首先判断是否存在session，如果不存在，说明没有登录，返回登录页面
@@ -256,7 +266,7 @@ GET/logout
 
  **新增菜品**
 
-需要验证管理员身份
+管理员权限
 
 ```
 POST/dish
@@ -270,11 +280,7 @@ POST/dish
 }
 ```
 
-首先需要验证登录状态，并确定管理员的身份
-
-具体步骤为判断session是否存在，判断user是否为非空，判断是否管理员身份
-
-然后将名称以及价格构造菜品类然后加入数据库
+名称以及价格构造菜品类然后加入数据库
 
 需要注意的是，在一家店中通常一个菜名对应一种菜
 
@@ -284,8 +290,10 @@ POST/dish
 
 **删除菜品**
 
+管理员权限
+
 ```
-DELETE/dish?dishId=xxx
+dish/delete?dishId=xxx
 {
 }
 {
@@ -294,10 +302,10 @@ DELETE/dish?dishId=xxx
 }
 ```
 
-查看所有菜品
+**查看所有菜品**
 
 ```
-GET/dish
+GET/dish/getDish
 {
 }
 {
@@ -315,7 +323,7 @@ GET/dish
 
 ## 5.3 订单管理
 
-新增订单
+**新增订单**
 
 ```
 POST/order
@@ -328,9 +336,15 @@ POST/order
 }
 ```
 
-查看订单
+**查看订单**
 
 根据身份来判断操作
+
+管理员和用户都可以进行查看订单，管理员可以查看所有订单，而用户只能查看自己的订单
+
+由于使用统一函数接口，所以权限只拦截到登录状态
+
+在内部判断管理员的操作和普通用户的操作不同
 
 ```
 GET/order
@@ -346,7 +360,7 @@ GET/order
 }
 ```
 
-查看指定订单详情
+**查看指定订单详情**
 
 ```
 GET/order?orderId=xxx
@@ -361,15 +375,39 @@ GET/order?orderId=xxx
 }
 ```
 
-修改订单状态
+**修改订单状态**
+
+管理员操作
 
 ```	
-PUT/order?orderId=xxx&isDone=1
+GET/order/changeState?orderId=xxx&isDone=1
 {
 }
 {
 	ok:1,
 	reason:xxx
+}
+```
+
+## 5.4 权限配置
+
+```java
+@Configuration
+public class AppConfig implements WebMvcConfigurer {
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+
+        registry.addInterceptor(new AdminInterceptor())
+                .addPathPatterns("/admin-dish.html")
+                .addPathPatterns("/admin-order.html")
+                .addPathPatterns("/dish/add")
+                .addPathPatterns("/dish/delete")
+                .addPathPatterns("/order/changeState");
+
+        registry.addInterceptor(new LoginInterceptor())
+                .addPathPatterns("/order/add")
+           		.addPathPatterns("/order/findOrders");
+    }
 }
 ```
 
@@ -382,6 +420,7 @@ PUT/order?orderId=xxx&isDone=1
 在进行添加order_user时，在添加成功后，需要得到自动生成的`orderId`所以需要如下实现
 
 ```java
+//该版本为V1版本代码---使用JDBC编程
 PreparedStatement statement =null;
 ResultSet resultSet = null;
 String sql = "xxxxxx";
@@ -416,7 +455,7 @@ java.sql.SQLException: Generated keys not requested.
 
 错误原因：
 
-获取预编译块的时候未获取带有主键返回策略的预编译块
+<font color="red">**获取预编译块的时候未获取带有主键返回策略的预编译块**</font>
 
 解决方式：
 
@@ -430,11 +469,13 @@ statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 在已有订单选中菜品时，我们执行删除操作，**虽然在页面时提示成功**，但是在控制台查看提示
 
-**绑定外键后执行删除或者更新操作不可进行**
+抛出异常：**绑定外键后执行删除或者更新操作不可进行**
+
+PS:	改完代码后查看前端时发现，发现这个项目在设计时就已经确定绑定主键后不可删除。我在后续实现的时候没有触发前端页面这个选项。
 
 解决方法如下：
 
-1、那我们可以取消外键，但是我们在查看订单时也会消失不见。得不偿失
+1、那我们可以取消外键，成功使用`delete`方式将菜品删除，但是我们在查看订单时也会这个菜品的记录会消失不见。得不偿失，不建议采用
 
 2、我们就需要给菜品设定一个状态，表示现在存在，还是现在不存在。暂时没有说明缺点。
 
@@ -454,6 +495,46 @@ create table dishes (
 当我们删除菜品的时候我们将状态置为1
 
 当我们查询过去的订单时，这和状态没有关系，仍然可以查看被我们“删除”的的菜品
+
+## 6.3 后端不能识别前端发送的字符串
+
+使用JSON字符串进行前后端交互是本项目使用的方式
+
+在使用Servlet实现项目的时候
+
+```
+{"name":"xxx","password":"xxxx"}
+```
+
+```java
+public void func(HttpServletRequest req,HttpServletResponse resp){
+    //设置请求的格式utf-8
+    //设置返回的格式为application/json
+    //得到参数
+    String name=req.getParementer("name");
+    String password=req.getParementer("password");
+   
+}
+```
+
+但是在Spring中
+
+```java
+//接受一个json字符串并将其转换为一个对象
+public Object func(@RequestBody User user);
+```
+
+但是不能接受的信息
+
+通过POSTMAN进行模拟测试post的body中添加字符串
+
+`{"name":"xxx","password":"xxxx"}`可以得到正常的响应
+
+通过fiddle进行抓包后发现，vue对我们的json字符串发送的格式为`x-www-form-urlencoded`
+
+通过查询发现，vue对字符串的处理格式默认为上述
+
+修改格式为`application/json`后后端可以正常接受参数
 
 # 7. 代码优化
 
@@ -554,3 +635,7 @@ create table dishes (
 ```
 
 而不是删除成功，但实际上并没有删除成功。
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+PS：在使用SpringBoot重写项目的时候，可以使用统一异常处理，和统一返回。但是我们可以看见，很多函数的返回的结构并不相同，这里就不在使用统一异常处理和统一返回。

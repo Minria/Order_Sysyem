@@ -1,251 +1,147 @@
-2022-03-05 19:39:35.222  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 16992 (D:\Github\Order_System\Order_System_spring\target\classes started by wangfuming in D:\Github\Order_System\Order_System_spring)
-2022-03-05 19:39:35.227  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
-2022-03-05 19:39:35.280  INFO 16992 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-03-05 19:39:35.280  INFO 16992 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-03-05 19:39:36.586  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-05 19:39:36.595  INFO 16992 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-05 19:39:36.595  INFO 16992 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-03-05 19:39:36.660  INFO 16992 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-05 19:39:36.660  INFO 16992 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1379 ms
-2022-03-05 19:39:37.211  INFO 16992 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2022-03-05 19:39:37.416  INFO 16992 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-05 19:39:37.474  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-03-05 19:39:37.490  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 2.637 seconds (JVM running for 3.609)
-2022-03-05 19:39:58.991  INFO 16992 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-03-05 19:39:58.991  INFO 16992 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-03-05 19:39:58.992  INFO 16992 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-03-05 19:42:03.625  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 16992 (D:\Github\Order_System\Order_System_spring\target\classes started by wangfuming in D:\Github\Order_System\Order_System_spring)
-2022-03-05 19:42:03.625  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
-2022-03-05 19:42:03.844  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-05 19:42:03.845  INFO 16992 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-05 19:42:03.845  INFO 16992 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-03-05 19:42:03.858  INFO 16992 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-05 19:42:03.858  INFO 16992 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 230 ms
-2022-03-05 19:42:03.956  INFO 16992 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2022-03-05 19:42:03.998  INFO 16992 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-05 19:42:04.012  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-03-05 19:42:04.016  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 0.415 seconds (JVM running for 150.136)
-2022-03-05 19:42:04.020  INFO 16992 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-03-05 19:42:04.081  INFO 16992 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-03-05 19:42:04.082  INFO 16992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-03-05 19:42:04.082  INFO 16992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2022-03-05 19:42:04.486  INFO 16992 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-03-05 19:42:04.489  WARN 16992 --- [http-nio-8080-exec-3] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2022-03-05 19:42:04.665  INFO 16992 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-03-05 19:42:05.568  INFO 16992 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-03-05 19:42:05.576  INFO 16992 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-03-05 19:42:05.713  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 16992 (D:\Github\Order_System\Order_System_spring\target\classes started by wangfuming in D:\Github\Order_System\Order_System_spring)
-2022-03-05 19:42:05.713  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
-2022-03-05 19:42:05.908  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-05 19:42:05.909  INFO 16992 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-05 19:42:05.909  INFO 16992 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-03-05 19:42:05.936  INFO 16992 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-05 19:42:05.936  INFO 16992 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 220 ms
-2022-03-05 19:42:06.084  INFO 16992 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2022-03-05 19:42:06.122  INFO 16992 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-05 19:42:06.135  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-03-05 19:42:06.140  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 0.45 seconds (JVM running for 152.259)
-2022-03-05 19:42:06.140  INFO 16992 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-03-05 19:42:19.237  INFO 16992 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-03-05 19:42:19.238  INFO 16992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-03-05 19:42:19.239  INFO 16992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-03-05 19:42:19.276  INFO 16992 --- [http-nio-8080-exec-1] c.e.o.controller.UserController          : 登录用户名：wfm 登录密码：qwe123
-2022-03-05 19:42:19.277  INFO 16992 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2022-03-05 19:42:19.278  WARN 16992 --- [http-nio-8080-exec-1] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2022-03-05 19:42:19.281  INFO 16992 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2022-03-05 19:42:20.530  INFO 16992 --- [http-nio-8080-exec-3] c.e.o.controller.OrderController         : orderId:null
-2022-03-05 19:42:22.094  INFO 16992 --- [http-nio-8080-exec-4] c.e.o.controller.OrderController         : orderId:27
-2022-03-05 19:42:52.524  INFO 16992 --- [http-nio-8080-exec-7] c.e.o.controller.OrderController         : orderId:1
-2022-03-05 19:44:40.545  INFO 16992 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2022-03-05 19:44:40.549  INFO 16992 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2022-03-05 19:44:40.726  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 16992 (D:\Github\Order_System\Order_System_spring\target\classes started by wangfuming in D:\Github\Order_System\Order_System_spring)
-2022-03-05 19:44:40.727  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
-2022-03-05 19:44:40.999  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-05 19:44:41.000  INFO 16992 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-05 19:44:41.000  INFO 16992 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-03-05 19:44:41.016  INFO 16992 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-05 19:44:41.016  INFO 16992 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 287 ms
-2022-03-05 19:44:41.108  INFO 16992 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2022-03-05 19:44:41.137  INFO 16992 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-05 19:44:41.146  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-03-05 19:44:41.152  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 0.452 seconds (JVM running for 307.271)
-2022-03-05 19:44:41.153  INFO 16992 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-03-05 19:44:42.811  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 16992 (D:\Github\Order_System\Order_System_spring\target\classes started by wangfuming in D:\Github\Order_System\Order_System_spring)
-2022-03-05 19:44:42.811  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
-2022-03-05 19:44:42.965  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-05 19:44:42.965  INFO 16992 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-05 19:44:42.965  INFO 16992 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-03-05 19:44:42.976  INFO 16992 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-05 19:44:42.976  INFO 16992 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 164 ms
-2022-03-05 19:44:43.061  INFO 16992 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2022-03-05 19:44:43.104  INFO 16992 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-05 19:44:43.148  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-03-05 19:44:43.160  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 0.366 seconds (JVM running for 309.279)
-2022-03-05 19:44:43.162  INFO 16992 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-03-05 19:44:45.671  INFO 16992 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-03-05 19:44:45.672  INFO 16992 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-03-05 19:44:45.674  INFO 16992 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-03-05 19:45:12.714  INFO 16992 --- [http-nio-8080-exec-5] c.e.o.controller.UserController          : 登录用户名：wfm 登录密码：qwe123
-2022-03-05 19:45:12.714  INFO 16992 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
-2022-03-05 19:45:12.714  WARN 16992 --- [http-nio-8080-exec-5] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2022-03-05 19:45:12.729  INFO 16992 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
-2022-03-05 19:45:19.431  INFO 16992 --- [http-nio-8080-exec-5] c.e.o.controller.OrderController         : orderId:null
-2022-03-05 19:45:20.261  INFO 16992 --- [http-nio-8080-exec-9] c.e.o.controller.OrderController         : orderId:20
-2022-03-05 19:45:23.117  INFO 16992 --- [http-nio-8080-exec-7] c.e.o.controller.OrderController         : orderId:null
-2022-03-05 19:45:40.103  INFO 16992 --- [http-nio-8080-exec-10] c.e.o.controller.UserController          : 登录用户名： 登录密码：
-2022-03-05 19:45:51.414  INFO 16992 --- [http-nio-8080-exec-3] c.e.o.controller.UserController          : 登录用户名：wfm 登录密码：qwe123
-2022-03-05 19:47:03.694  INFO 16992 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
-2022-03-05 19:47:03.700  INFO 16992 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
-2022-03-05 19:47:03.790  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 16992 (D:\Github\Order_System\Order_System_spring\target\classes started by wangfuming in D:\Github\Order_System\Order_System_spring)
-2022-03-05 19:47:03.791  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
-2022-03-05 19:47:03.972  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-05 19:47:03.973  INFO 16992 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-05 19:47:03.973  INFO 16992 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-03-05 19:47:03.988  INFO 16992 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-05 19:47:03.988  INFO 16992 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 196 ms
-2022-03-05 19:47:04.115  INFO 16992 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2022-03-05 19:47:04.156  INFO 16992 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-05 19:47:04.166  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-03-05 19:47:04.171  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 0.397 seconds (JVM running for 450.291)
-2022-03-05 19:47:04.173  INFO 16992 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-03-05 19:53:13.155  INFO 16992 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-03-05 19:53:13.155  INFO 16992 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-03-05 19:53:13.157  INFO 16992 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-03-05 19:53:14.445  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 16992 (D:\Github\Order_System\Order_System_spring\target\classes started by wangfuming in D:\Github\Order_System\Order_System_spring)
-2022-03-05 19:53:14.446  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
-2022-03-05 19:53:14.659  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-05 19:53:14.660  INFO 16992 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-05 19:53:14.660  INFO 16992 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-03-05 19:53:14.672  INFO 16992 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-05 19:53:14.672  INFO 16992 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 225 ms
-2022-03-05 19:53:14.753  INFO 16992 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2022-03-05 19:53:14.779  INFO 16992 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-05 19:53:14.786  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-03-05 19:53:14.790  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 0.363 seconds (JVM running for 820.909)
-2022-03-05 19:53:14.792  INFO 16992 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-03-05 19:53:25.131  INFO 16992 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-03-05 19:53:25.131  INFO 16992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-03-05 19:53:25.132  INFO 16992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-03-05 19:54:44.354  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 16992 (D:\Github\Order_System\Order_System_spring\target\classes started by wangfuming in D:\Github\Order_System\Order_System_spring)
-2022-03-05 19:54:44.355  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
-2022-03-05 19:54:44.584  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-05 19:54:44.585  INFO 16992 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-05 19:54:44.585  INFO 16992 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-03-05 19:54:44.597  INFO 16992 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-05 19:54:44.597  INFO 16992 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 239 ms
-2022-03-05 19:54:44.686  INFO 16992 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2022-03-05 19:54:44.715  INFO 16992 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-05 19:54:44.722  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-03-05 19:54:44.726  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 0.396 seconds (JVM running for 910.846)
-2022-03-05 19:54:44.727  INFO 16992 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-03-05 19:54:46.405  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 16992 (D:\Github\Order_System\Order_System_spring\target\classes started by wangfuming in D:\Github\Order_System\Order_System_spring)
-2022-03-05 19:54:46.406  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
-2022-03-05 19:54:46.564  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-05 19:54:46.565  INFO 16992 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-05 19:54:46.565  INFO 16992 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-03-05 19:54:46.575  INFO 16992 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-05 19:54:46.575  INFO 16992 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 168 ms
-2022-03-05 19:54:46.644  INFO 16992 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2022-03-05 19:54:46.668  INFO 16992 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-05 19:54:46.674  INFO 16992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-03-05 19:54:46.677  INFO 16992 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 0.287 seconds (JVM running for 912.797)
-2022-03-05 19:54:46.678  INFO 16992 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-03-05 19:54:46.827  INFO 16992 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-03-05 19:54:46.829  INFO 16992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-03-05 19:54:46.830  INFO 16992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-03-05 19:55:48.544  INFO 16992 --- [http-nio-8080-exec-2] c.e.o.controller.UserController          : 登录用户名：wfm 登录密码：qwe123
-2022-03-05 19:55:48.545  INFO 16992 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
-2022-03-05 19:55:48.545  WARN 16992 --- [http-nio-8080-exec-2] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2022-03-05 19:55:48.558  INFO 16992 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
-2022-03-05 19:55:52.878  INFO 16992 --- [http-nio-8080-exec-2] c.e.o.controller.OrderController         : orderId:null
-2022-03-05 19:56:39.051  INFO 16992 --- [http-nio-8080-exec-7] c.e.o.controller.OrderController         : orderId:null
-2022-03-05 19:56:40.247  INFO 16992 --- [http-nio-8080-exec-2] c.e.o.controller.OrderController         : orderId:null
-2022-03-05 19:56:41.059  INFO 16992 --- [http-nio-8080-exec-7] c.e.o.controller.OrderController         : orderId:null
-2022-03-05 19:58:37.315  INFO 16992 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
-2022-03-05 19:58:37.318  INFO 16992 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
-2022-03-05 19:58:48.265  INFO 10828 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 10828 (D:\Github\Order_System\Order_System_spring\target\classes started by wangfuming in D:\Github\Order_System\Order_System_spring)
-2022-03-05 19:58:48.267  INFO 10828 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
-2022-03-05 19:58:48.333  INFO 10828 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-03-05 19:58:48.333  INFO 10828 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-03-05 19:58:49.673  INFO 10828 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-05 19:58:49.685  INFO 10828 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-05 19:58:49.686  INFO 10828 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-03-05 19:58:49.767  INFO 10828 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-05 19:58:49.768  INFO 10828 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1434 ms
-2022-03-05 19:58:50.383  INFO 10828 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2022-03-05 19:58:50.594  INFO 10828 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-05 19:58:50.636  INFO 10828 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-03-05 19:58:50.650  INFO 10828 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 2.891 seconds (JVM running for 3.934)
-2022-03-05 19:58:57.501  INFO 10828 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-03-05 19:58:57.502  INFO 10828 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-03-05 19:58:57.503  INFO 10828 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-03-05 20:09:58.183  INFO 13032 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 13032 (D:\Github\Order_System\Order_System_spring\target\classes started by wangfuming in D:\Github\Order_System\Order_System_spring)
-2022-03-05 20:09:58.185  INFO 13032 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
-2022-03-05 20:09:58.234  INFO 13032 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-03-05 20:09:58.235  INFO 13032 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-03-05 20:09:59.443  INFO 13032 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-05 20:09:59.450  INFO 13032 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-05 20:09:59.451  INFO 13032 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-03-05 20:09:59.528  INFO 13032 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-05 20:09:59.528  INFO 13032 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1293 ms
-2022-03-05 20:10:00.093  INFO 13032 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2022-03-05 20:10:00.348  INFO 13032 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-05 20:10:00.383  INFO 13032 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-03-05 20:10:00.399  INFO 13032 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 2.576 seconds (JVM running for 3.359)
-2022-03-05 20:10:12.690  INFO 13032 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-03-05 20:10:12.690  INFO 13032 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-03-05 20:10:12.691  INFO 13032 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2022-03-05 20:10:39.988  INFO 13032 --- [http-nio-8080-exec-9] c.e.o.controller.UserController          : 登录用户名：wfm 登录密码：qwe123
-2022-03-05 20:10:40.002  INFO 13032 --- [http-nio-8080-exec-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-03-05 20:10:40.004  WARN 13032 --- [http-nio-8080-exec-9] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2022-03-05 20:10:40.101  INFO 13032 --- [http-nio-8080-exec-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-03-05 20:10:41.956  INFO 13032 --- [http-nio-8080-exec-9] c.e.o.controller.OrderController         : orderId:null
-2022-03-05 20:10:45.323  INFO 13032 --- [http-nio-8080-exec-6] c.e.o.controller.OrderController         : [11, 12]
-2022-03-05 20:10:46.529  INFO 13032 --- [http-nio-8080-exec-10] c.e.o.controller.OrderController         : orderId:null
-2022-03-05 20:11:13.729  WARN 13032 --- [http-nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'application/x-www-form-urlencoded;charset=UTF-8' not supported]
-2022-03-05 20:11:14.730  WARN 13032 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'application/x-www-form-urlencoded;charset=UTF-8' not supported]
-2022-03-05 20:11:45.396  WARN 13032 --- [http-nio-8080-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'application/x-www-form-urlencoded;charset=UTF-8' not supported]
-2022-03-05 20:11:58.082  WARN 13032 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'application/x-www-form-urlencoded;charset=UTF-8' not supported]
-2022-03-05 20:12:22.414  WARN 13032 --- [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'application/x-www-form-urlencoded;charset=UTF-8' not supported]
-2022-03-05 20:12:33.987  INFO 13032 --- [http-nio-8080-exec-5] c.e.o.controller.UserController          : 登录用户名：wangfuming 登录密码：123
-2022-03-05 20:12:51.541  INFO 13032 --- [http-nio-8080-exec-7] c.e.o.controller.DishController          : Dish(dishId=0, name=火腿肠, price=100, state=0)
-2022-03-05 20:13:51.481  INFO 13032 --- [http-nio-8080-exec-7] c.e.o.controller.DishController          : Dish(dishId=0, name=火腿肠, price=100, state=0)
-2022-03-05 20:13:53.897  INFO 13032 --- [http-nio-8080-exec-1] c.e.o.controller.OrderController         : orderId:null
-2022-03-05 20:13:56.218  INFO 13032 --- [http-nio-8080-exec-3] c.e.o.controller.OrderController         : orderId:28
-2022-03-05 20:14:00.693  INFO 13032 --- [http-nio-8080-exec-6] c.e.o.controller.OrderController         : orderId:null
-2022-03-05 20:15:57.573  INFO 13032 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-03-05 20:15:57.578  INFO 13032 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-03-05 20:15:57.741  INFO 13032 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 13032 (D:\Github\Order_System\Order_System_spring\target\classes started by wangfuming in D:\Github\Order_System\Order_System_spring)
-2022-03-05 20:15:57.742  INFO 13032 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
-2022-03-05 20:15:58.037  INFO 13032 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-05 20:15:58.037  INFO 13032 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-05 20:15:58.038  INFO 13032 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-03-05 20:15:58.061  INFO 13032 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-05 20:15:58.061  INFO 13032 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 317 ms
-2022-03-05 20:15:58.170  INFO 13032 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2022-03-05 20:15:58.211  INFO 13032 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-05 20:15:58.220  INFO 13032 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-03-05 20:15:58.225  INFO 13032 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 0.515 seconds (JVM running for 361.185)
-2022-03-05 20:15:58.227  INFO 13032 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-03-05 20:15:59.933  INFO 13032 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 13032 (D:\Github\Order_System\Order_System_spring\target\classes started by wangfuming in D:\Github\Order_System\Order_System_spring)
-2022-03-05 20:15:59.934  INFO 13032 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
-2022-03-05 20:16:00.153  INFO 13032 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-05 20:16:00.154  INFO 13032 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-05 20:16:00.154  INFO 13032 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-03-05 20:16:00.187  INFO 13032 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-05 20:16:00.187  INFO 13032 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 250 ms
-2022-03-05 20:16:00.284  INFO 13032 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2022-03-05 20:16:00.314  INFO 13032 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-05 20:16:00.323  INFO 13032 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-03-05 20:16:00.326  INFO 13032 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 0.416 seconds (JVM running for 363.287)
-2022-03-05 20:16:00.327  INFO 13032 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-03-05 20:16:09.537  INFO 13032 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-03-05 20:16:09.538  INFO 13032 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-03-05 20:16:09.539  INFO 13032 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-03-05 20:16:09.543  INFO 13032 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2022-03-05 20:16:09.543  WARN 13032 --- [http-nio-8080-exec-1] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2022-03-05 20:16:09.549  INFO 13032 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2022-03-05 20:16:17.917  INFO 13032 --- [http-nio-8080-exec-2] c.e.o.controller.UserController          : 登录用户名：user001 登录密码：123
-2022-03-05 20:19:47.772  INFO 13032 --- [http-nio-8080-exec-6] c.e.o.controller.OrderController         : orderId:null
-2022-03-05 20:20:01.834  INFO 13032 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2022-03-05 20:20:01.838  INFO 13032 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2022-03-06 12:48:06.188  INFO 7320 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 7320 (D:\Github\Order_System\target\classes started by wangfuming in D:\Github\Order_System)
+2022-03-06 12:48:06.193  INFO 7320 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
+2022-03-06 12:48:06.255  INFO 7320 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-06 12:48:06.255  INFO 7320 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-06 12:48:07.751  INFO 7320 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-06 12:48:07.785  INFO 7320 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-06 12:48:07.786  INFO 7320 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-06 12:48:08.022  INFO 7320 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-06 12:48:08.022  INFO 7320 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1765 ms
+2022-03-06 12:48:09.289  INFO 7320 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2022-03-06 12:48:09.540  INFO 7320 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-06 12:48:09.620  INFO 7320 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-06 12:48:09.636  INFO 7320 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 3.812 seconds (JVM running for 4.756)
+2022-03-06 12:48:10.372  INFO 7320 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-06 12:48:10.372  INFO 7320 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-06 12:48:10.376  INFO 7320 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-03-06 12:51:39.089  INFO 7320 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 7320 (D:\Github\Order_System\target\classes started by wangfuming in D:\Github\Order_System)
+2022-03-06 12:51:39.089  INFO 7320 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
+2022-03-06 12:51:39.289  INFO 7320 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-06 12:51:39.290  INFO 7320 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-06 12:51:39.290  INFO 7320 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-06 12:51:39.304  INFO 7320 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-06 12:51:39.305  INFO 7320 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 214 ms
+2022-03-06 12:51:39.428  INFO 7320 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2022-03-06 12:51:39.483  INFO 7320 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-06 12:51:39.494  INFO 7320 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-06 12:51:39.500  INFO 7320 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 0.434 seconds (JVM running for 214.619)
+2022-03-06 12:51:39.501  INFO 7320 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-03-06 12:51:40.896  INFO 7320 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-06 12:51:40.897  INFO 7320 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-06 12:51:40.898  INFO 7320 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-03-06 12:51:41.241  INFO 7320 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 7320 (D:\Github\Order_System\target\classes started by wangfuming in D:\Github\Order_System)
+2022-03-06 12:51:41.241  INFO 7320 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
+2022-03-06 12:51:41.464  INFO 7320 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-06 12:51:41.465  INFO 7320 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-06 12:51:41.465  INFO 7320 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-06 12:51:41.487  INFO 7320 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-06 12:51:41.487  INFO 7320 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 244 ms
+2022-03-06 12:51:41.573  INFO 7320 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2022-03-06 12:51:41.602  INFO 7320 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-06 12:51:41.612  INFO 7320 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-06 12:51:41.616  INFO 7320 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 0.399 seconds (JVM running for 216.735)
+2022-03-06 12:51:41.617  INFO 7320 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-03-06 12:51:41.789  INFO 7320 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-06 12:51:41.790  INFO 7320 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-06 12:51:41.791  INFO 7320 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-03-06 12:51:41.816  INFO 7320 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-06 12:51:41.943  INFO 7320 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-03-06 12:51:48.624  INFO 7320 --- [http-nio-8080-exec-2] c.e.o.controller.UserController          : 登录用户名：wfm 登录密码：qwe123
+2022-03-06 12:51:49.782  INFO 7320 --- [http-nio-8080-exec-4] c.e.o.controller.OrderController         : orderId:null
+2022-03-06 12:51:50.929  INFO 7320 --- [http-nio-8080-exec-5] c.e.o.controller.OrderController         : orderId:28
+2022-03-06 12:51:57.339  INFO 7320 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-03-06 12:51:57.347  INFO 7320 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-03-06 21:01:21.224  INFO 9764 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 9764 (D:\Github\Order_System\target\classes started by wangfuming in D:\Github\Order_System)
+2022-03-06 21:01:21.226  INFO 9764 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
+2022-03-06 21:01:21.265  INFO 9764 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-06 21:01:21.266  INFO 9764 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-06 21:01:22.372  INFO 9764 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-06 21:01:22.379  INFO 9764 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-06 21:01:22.380  INFO 9764 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-06 21:01:22.438  INFO 9764 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-06 21:01:22.439  INFO 9764 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1173 ms
+2022-03-06 21:01:22.893  INFO 9764 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2022-03-06 21:01:23.067  INFO 9764 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-06 21:01:23.093  INFO 9764 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-06 21:01:23.101  INFO 9764 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 2.291 seconds (JVM running for 3.276)
+2022-03-06 21:01:37.526  INFO 9764 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-06 21:01:37.526  INFO 9764 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-06 21:01:37.528  INFO 9764 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-03-06 21:01:38.991  INFO 9764 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-06 21:01:39.343  INFO 9764 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-03-06 21:01:51.307  INFO 9764 --- [http-nio-8080-exec-10] c.e.o.controller.UserController          : 登录用户名：wfm 登录密码：qwe123
+2022-03-06 21:01:56.088  INFO 9764 --- [http-nio-8080-exec-2] c.e.o.controller.UserController          : 登录用户名：wfm 登录密码：qwe123
+2022-03-06 21:01:58.317  INFO 9764 --- [http-nio-8080-exec-3] c.e.o.controller.OrderController         : orderId:null
+2022-03-06 21:01:59.504  INFO 9764 --- [http-nio-8080-exec-6] c.e.o.controller.OrderController         : orderId:20
+2022-03-06 21:07:17.522  INFO 9764 --- [http-nio-8080-exec-1] c.e.o.controller.OrderController         : orderId:null
+2022-03-06 21:07:19.012  INFO 9764 --- [http-nio-8080-exec-9] c.e.o.controller.OrderController         : orderId:20
+2022-03-06 21:07:20.835  INFO 9764 --- [http-nio-8080-exec-4] c.e.o.controller.OrderController         : orderId:25
+2022-03-06 21:09:02.782  INFO 9764 --- [Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-03-06 21:09:02.790  INFO 9764 --- [Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-03-06 21:09:02.934  INFO 9764 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 9764 (D:\Github\Order_System\target\classes started by wangfuming in D:\Github\Order_System)
+2022-03-06 21:09:02.934  INFO 9764 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
+2022-03-06 21:09:03.206  INFO 9764 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-06 21:09:03.206  INFO 9764 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-06 21:09:03.206  INFO 9764 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-06 21:09:03.433  INFO 9764 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-06 21:09:03.433  INFO 9764 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 497 ms
+2022-03-06 21:09:03.544  INFO 9764 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2022-03-06 21:09:03.577  INFO 9764 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-06 21:09:03.588  INFO 9764 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-06 21:09:03.592  INFO 9764 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 0.686 seconds (JVM running for 463.766)
+2022-03-06 21:09:03.594  INFO 9764 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-03-06 21:09:06.297  INFO 9764 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 9764 (D:\Github\Order_System\target\classes started by wangfuming in D:\Github\Order_System)
+2022-03-06 21:09:06.297  INFO 9764 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
+2022-03-06 21:09:06.536  INFO 9764 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-06 21:09:06.536  INFO 9764 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-06 21:09:06.536  INFO 9764 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-06 21:09:06.562  INFO 9764 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-06 21:09:06.562  INFO 9764 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 262 ms
+2022-03-06 21:09:06.660  INFO 9764 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2022-03-06 21:09:06.698  INFO 9764 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-06 21:09:06.706  INFO 9764 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-06 21:09:06.712  INFO 9764 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 0.443 seconds (JVM running for 466.886)
+2022-03-06 21:09:06.714  INFO 9764 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-03-06 21:09:06.756  INFO 9764 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-06 21:09:06.758  INFO 9764 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-06 21:09:06.758  INFO 9764 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-03-06 21:09:26.627  INFO 9764 --- [http-nio-8080-exec-2] c.e.o.controller.UserController          : 登录用户名：wangfuming 登录密码：123
+2022-03-06 21:09:26.628  INFO 9764 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2022-03-06 21:09:26.643  INFO 9764 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2022-03-06 21:09:33.243  INFO 9764 --- [http-nio-8080-exec-4] c.e.o.controller.OrderController         : orderId:null
+2022-03-06 21:10:16.143  INFO 9764 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2022-03-06 21:10:16.146  INFO 9764 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2022-03-06 21:10:16.285  INFO 9764 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 9764 (D:\Github\Order_System\target\classes started by wangfuming in D:\Github\Order_System)
+2022-03-06 21:10:16.285  INFO 9764 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
+2022-03-06 21:10:16.451  INFO 9764 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-06 21:10:16.451  INFO 9764 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-06 21:10:16.452  INFO 9764 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-06 21:10:16.462  INFO 9764 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-06 21:10:16.462  INFO 9764 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 175 ms
+2022-03-06 21:10:16.537  INFO 9764 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2022-03-06 21:10:16.566  INFO 9764 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-06 21:10:16.578  INFO 9764 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-06 21:10:16.585  INFO 9764 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 0.315 seconds (JVM running for 536.758)
+2022-03-06 21:10:16.586  INFO 9764 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-03-06 21:10:18.245  INFO 9764 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Starting OrderSystemApplication using Java 1.8.0_192 on HONOR-MAGICBOOK with PID 9764 (D:\Github\Order_System\target\classes started by wangfuming in D:\Github\Order_System)
+2022-03-06 21:10:18.245  INFO 9764 --- [restartedMain] c.e.order_system.OrderSystemApplication  : No active profile set, falling back to 1 default profile: "default"
+2022-03-06 21:10:18.466  INFO 9764 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-06 21:10:18.466  INFO 9764 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-06 21:10:18.466  INFO 9764 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-06 21:10:18.477  INFO 9764 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-06 21:10:18.477  INFO 9764 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 230 ms
+2022-03-06 21:10:18.556  INFO 9764 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2022-03-06 21:10:18.584  INFO 9764 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-06 21:10:18.590  INFO 9764 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-06 21:10:18.597  INFO 9764 --- [restartedMain] c.e.order_system.OrderSystemApplication  : Started OrderSystemApplication in 0.373 seconds (JVM running for 538.77)
+2022-03-06 21:10:18.598  INFO 9764 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-03-06 21:10:18.684  INFO 9764 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-06 21:10:18.685  INFO 9764 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-06 21:10:18.687  INFO 9764 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-03-06 21:10:30.392  INFO 9764 --- [http-nio-8080-exec-10] c.e.o.controller.UserController          : 登录用户名：wangfuming 登录密码：123
+2022-03-06 21:10:30.393  INFO 9764 --- [http-nio-8080-exec-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2022-03-06 21:10:30.408  INFO 9764 --- [http-nio-8080-exec-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2022-03-06 21:10:55.017  INFO 9764 --- [http-nio-8080-exec-5] c.e.o.controller.OrderController         : orderId:null
+2022-03-06 21:11:40.505  INFO 9764 --- [http-nio-8080-exec-4] c.e.o.controller.UserController          : 尝试注销
+2022-03-06 21:12:17.276  INFO 9764 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2022-03-06 21:12:17.278  INFO 9764 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.

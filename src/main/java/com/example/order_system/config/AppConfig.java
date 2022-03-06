@@ -10,15 +10,17 @@ public class AppConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 
+
         registry.addInterceptor(new AdminInterceptor())
-                .addPathPatterns("/admin-dish.html")
-                .addPathPatterns("/admin-order.html")
                 .addPathPatterns("/dish/add")
                 .addPathPatterns("/dish/delete")
-                .addPathPatterns("/order/changeState");
-
+                .addPathPatterns("/order/changeState")
+                .addPathPatterns("/admin-order.html")
+                .addPathPatterns("/admin-dish.html");
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/order/add")
-                .addPathPatterns("/dish/getDish");
+                .addPathPatterns("/order/findOrders")
+                .addPathPatterns("user-dish.html")
+                .addPathPatterns("user-order,html");
     }
 }

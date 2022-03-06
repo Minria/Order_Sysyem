@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
 
 <head>
   <meta charset="utf-8">
@@ -251,9 +251,9 @@
         loginAccount() {
           console.log("login");
           $.ajax({
-            contentType:'application/json',
             url: 'user/login',
             type: 'post',
+            contentType:'application/json',
             data: JSON.stringify({
               name: app.login.inputUsername,
               password: app.login.inputPassword,
@@ -338,7 +338,7 @@
           $.ajax({
             url: 'order',
             type: 'post',
-            contentType: 'application/json',
+            contentType:'application/json',
             data: JSON.stringify(dishIds),
             success: function (data, status) {
               alert("下单成功!");

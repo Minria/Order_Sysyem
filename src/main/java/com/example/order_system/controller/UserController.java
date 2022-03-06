@@ -77,6 +77,7 @@ public class UserController {
     }
     @RequestMapping("/logout")
     public void logout(HttpServletRequest request){
+        logger.info("尝试注销");
         HttpSession session= request.getSession(false);
         session.removeAttribute("user");
     }

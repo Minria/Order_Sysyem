@@ -106,6 +106,16 @@ var app = new Vue({
             })
         },
         logout() {
+            console.log("logout");
+            app.login.isLogin = false;
+            app.user.name = null;
+            app.user.isAdmin = null;
+            $.ajax({
+                url: 'user/logout',
+                type: 'get',
+                success: function (data, status) {
+                }
+            });
             alert("注销功能还未实现嗷! 少年我看你骨骼清奇, 是编程奇才, 要不自己试试?");
         }
     }

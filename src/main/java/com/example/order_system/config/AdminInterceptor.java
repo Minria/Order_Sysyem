@@ -22,4 +22,3 @@ public class AdminInterceptor implements HandlerInterceptor {
     }
 }
 
-// contentType:'application/json',

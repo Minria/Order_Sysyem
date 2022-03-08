@@ -6,7 +6,6 @@ import com.example.order_system.dao.DishMapper;
 import com.example.order_system.model.Dish;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,14 +17,17 @@ import java.util.List;
 @ResponseBody
 @RequestMapping("/dish")
 public class DishController {
+    public DishController(DishMapper dishMapper) {
+        this.dishMapper = dishMapper;
+    }
+
     static class Response {
         public int ok;
         public String reason;
     }
 
     private final Logger logger= LoggerFactory.getLogger(DishController.class);
-    @Autowired
-    private DishMapper dishMapper;
+    private final DishMapper dishMapper;
     @RequestMapping("/add")
     public Object add(@RequestBody Dish dish){
         logger.info(dish.toString());

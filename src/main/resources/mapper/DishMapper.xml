@@ -14,7 +14,7 @@
     <update id="update">
         update  dishes set state=#{state} where dishId=#{id}
     </update>
-    <select id="selectAll" resultType="com.example.order_system.model.Dish">
+    <select id="selectAll" resultType="com.example.order_system.model.Dish" useCache="true">
         select * from dishes where state=0
     </select>
     <select id="selectById" resultType="com.example.order_system.model.Dish">

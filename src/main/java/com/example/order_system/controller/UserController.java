@@ -1,12 +1,12 @@
 package com.example.order_system.controller;
 
 
+import com.example.order_system.component.Util;
 import com.example.order_system.config.OrderSystemException;
 import com.example.order_system.dao.UserMapper;
 import com.example.order_system.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,14 +20,21 @@ import javax.servlet.http.HttpSession;
 public class UserController {
 
     private final Logger logger= LoggerFactory.getLogger(UserController.class);
+
+    private final UserMapper userMapper;
+    private final Util util;
+    public UserController(UserMapper userMapper, Util util) {
+        this.userMapper = userMapper;
+        this.util = util;
+    }
+
     static class Response{
         public int ok;
         public String reason;
         public String name;
         public int isAdmin;
     }
-    @Autowired
-    private UserMapper userMapper;
+
 
     @PostMapping ("/login")
     @ResponseBody
@@ -97,6 +104,7 @@ public class UserController {
             if(user.getPassword()==null||user.getPassword().length()==0){
                 throw new OrderSystemException("密码为空");
             }
+            util.verifyPassword(user.getPassword());
             int res = userMapper.add(user);
             if(res==0){
                 throw new OrderSystemException("注册失败，原因未知");
